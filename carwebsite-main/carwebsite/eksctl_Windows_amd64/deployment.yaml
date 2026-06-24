@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carwebsite-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: carwebsite
+  template:
+    metadata:
+      labels:
+        app: carwebsite
+    spec:
+      containers:
+      - name: carwebsite
+        image: <339284817086>.dkr.ecr.ap-south-1.amazonaws.com/carwebsite:v1
+        ports:
+        - containerPort: 80
